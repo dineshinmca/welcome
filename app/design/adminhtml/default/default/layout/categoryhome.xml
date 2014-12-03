@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <categoryhome_adminhtml_categoryhome_index>
+        <reference name="content">
+            <block type="categoryhome/adminhtml_categoryhome" name="categoryhome" />
+        </reference>
+    </categoryhome_adminhtml_categoryhome_index>
+</layout>

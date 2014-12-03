@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Alwaysoffer_Ajaxcart>
+			<version>0.2.0</version>
+		</Alwaysoffer_Ajaxcart>
+	</modules>
+		
+	<frontend>
+		<routers>
+			<ajaxcart>
+				<use>standard</use>
+				<args>
+				   <module>Alwaysoffer_Ajaxcart</module>
+				   <frontName>ajaxcart</frontName>
+				</args>
+			</ajaxcart>
+		</routers>
+	</frontend>
+	<global>
+		<rewrite>
+			<ajaxcart> <!--unique tag-->
+				<from><![CDATA[#^/checkout/cart/#]]></from>
+				<to>/ajaxcart/cart/</to>
+			</ajaxcart>
+		</rewrite>
+	</global>
+</config>

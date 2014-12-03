@@ -1,0 +1,29 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+.ptsblockrelatedproducts .title_block {
+  display: inline-block;
+  padding: 15px 20px 15px 20px;
+  font-size: 13px;
+}
+.rtl .ptsblockrelatedproducts .title_block {
+  padding: 15px 20px 15px 20px;
+}

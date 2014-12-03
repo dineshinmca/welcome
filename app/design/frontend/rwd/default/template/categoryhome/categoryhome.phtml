@@ -1,0 +1,176 @@
+<?php
+	$catid = $this->getRequest()->getParam('catid');
+	$categoryHome = Mage::getModel('categoryhome/categoryhome');
+	$categoryObj = Mage::getModel('catalog/category');
+	$parCat = $categoryObj->load($catid);
+	$_helper = $this->helper('catalog/output');
+	$product_block = new Mage_Catalog_Block_Product;
+	$reviewHelper = $this->getLayout()->createBlock('review/helper');
+?>
+	<div class="category_item block clearfix cat_snack">
+		<div class="block category_productlist col-lg-3 col-md-3 col-md-12 col-xs-12">
+			<h4 class="title_block"><span>New Products</span></h4>
+			<div id="tab-cat<?php echo $catid;?>-carousel" class="carousel slide">
+				<div class="carousel-controls">
+					<a data-slide="prev" href="#tab-cat<?php echo $catid;?>-carousel" class="carousel-control left"><</a>
+					<a data-slide="next" href="#tab-cat<?php echo $catid;?>-carousel" class="carousel-control right">></a>
+				</div>
+				<div class="carousel-inner">
+					<?php $npCollection = $categoryHome->getCategoryNewProducts($category_id);
+					if(!empty($npCollection)){ ?>
+						<ul class="product_list grid row products-block  item active style2 ">
+						<?php foreach ($npCollection as $_product): $productObj = Mage::getModel('catalog/product')->load($_product->getId());//print_r($_product->getData()); die;?>
+							<li class="col-xs-12 col-sm-6 col-md-3 col-lg-12 ajax_block_product first_item">
+								<div class="product-block">
+									<div class="product-container">
+										<div class="product-image-container image">
+											<a title="<?php echo $_product->getName();?>" class="img product_img_link" href="<?php echo $_product->getProductUrl();?>">						
+												<img class="img-responsive pts-image" alt="Integer velit mauris" src="<?php echo Mage::helper('catalog/image')->init($_product, 'small_image')->resize(197, 167); ?>">
+												<span class="product-label new-box"><span class="new-label">New</span></span>
+												<span class="product-label sale-box"><span class="sale-label">Reduced price!</span></span>
+											</a>
+										</div>
+										<div class="product-meta">
+											<h3 class="name">
+												<a href="<?php echo $_product->getProductUrl();?>" title="<?php echo $_product->getName();?>"><?php echo $_product->getName();?></a>
+											</h3>
+											<?php if($productObj->getRatingSummary):
+													echo $reviewHelper->getSummaryHtml($productObj, 'short', false);
+												else:
+													echo '<div class="no-rating"></div>';
+												endif;
+												?>
+											<div class="product-secondary">
+												<?php echo $product_block->getPriceHtml($productObj, true);?>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</li>
+						
+						 <?php   endforeach; ?>
+						 </ul>
+						 <?php
+						}else{
+							echo 'No products exists';
+						} 
+						?>
+				</div>	
+			</div>
+		</div>
+			
+			<div class="inner col-lg-9 col-md-9 col-md-12 col-xs-12">
+				<div class="category_sub">
+					<h3 class="category_title pull-left"><?php echo $parCat->getName();?></h3>
+					<?php $subcatList = $categoryHome->getSubCategoriesList($parCat->getChildren());
+						if($subcatList):
+						?>
+							<ul class="nav nav-stacked pull-right">
+								<?php $sbl=1; foreach($subcatList as $subcat):?>
+									<li class="<?php if($sbl = 1): echo 'active'; endif;?>">
+										<a data-toggle="tab" href="#tab-cat<?php echo $catid;?>-sub<?php echo $subcat['id'];?>">
+											<?php echo $subcat['name'];?>
+										</a>
+									</li>
+								<?php $sbl=$sbl+1; endforeach; ?>
+							</ul>
+						<?php
+						endif;
+						?>
+				</div>
+				<div class="category_desc hidden-md hidden-sm hidden-xs">
+					<?php if($parCat->getImage()):?>
+						<img alt="Delicious Snacks" src="<?php echo Mage::getBaseUrl('media').'catalog/category/'.$parCat->getImage();?>" class="img-responsive"> 
+					<?php endif;?>
+				</div>
+				<div class="category_content">
+					<div class="category_product_tab" id="product_tab_content_<?php echo $catid;?>">
+						<div class="product_tab_content tab-content">
+							<?php if($subcatList):
+							$sc ==1;
+							foreach($subcatList as $subcat):?>
+								<div id="tab-cat<?php echo $catid;?>-sub<?php echo $subcat['id'];?>" class="tab-pane <?php if($sc ==1) echo 'active';?>">
+									 <div id="tab-cat<?php echo $catid;?>-sub<?php echo $subcat['id'];?>-carousel" class="boxcarousel products_block slide products-rows ">
+										<div class="carousel-controls">
+											<a data-slide="prev" href="#tab-cat<?php echo $catid;?>-sub<?php echo $subcat['id'];?>-carousel" class="carousel-control left"><</a>
+											<a data-slide="next" href="#tab-cat<?php echo $catid;?>-sub<?php echo $subcat['id'];?>-carousel" class="carousel-control right">></a>
+										</div>
+									<div style="overflow: visible;" class="carousel-inner">
+										<?php $productCollection = $categoryHome->getCategoryProducts($category_id);
+											if(!empty($productCollection)): ?>
+												<ul class="product_list grid row products-block  item active style2 ">
+													<?php $cpc = count($productCollection);foreach($productCollection as $_cproduct):
+														$productcatObj = Mage::getModel('catalog/product')->load($_cproduct->getId());
+														
+													?>
+													<li class="ajax_block_product col-xs-12 col-sm-12 col-md-4 col-lg-4">
+														<div class="product-block">
+															<div class="product-container">
+																<div class="product-image-container image">
+																	<a title="<?php echo $_cproduct->getName();?>" class="img product_img_link" href="<?php echo $_cproduct->getProductUrl();?>">						
+																		<img class="img-responsive pts-image" alt="Integer velit mauris" src="<?php echo Mage::helper('catalog/image')->init($_cproduct, 'small_image')->resize(197, 167); ?>">
+																			<span class="product-label new-box"><span class="new-label">New</span></span>
+																			<span class="product-label sale-box"><span class="sale-label">Reduced price!</span></span>
+																	</a>
+																</div>
+																<div class="product-meta">
+																	<h3 class="name">
+																		<a href="<?php echo $_cproduct->getProductUrl();?>" title="<?php echo $_cproduct->getName();?>"><?php echo $_cproduct->getName();?></a>
+																		</h3>
+																		<?php if($productcatObj->getRatingSummary):
+																			echo $reviewHelper->getSummaryHtml($productcatObj, 'short', false);
+																		else:
+																			echo '<div class="no-rating"></div>';
+																		endif;
+																		?>
+																	<?php echo $reviewHelper->getSummaryHtml($productcatObj, 'short', false);?>
+																		<div class="product-secondary">
+																			<?php echo $product_block->getPriceHtml($productcatObj, true) ?>
+																		</div>
+																		<div class="product-buttons">
+																			<?php if($_product->isSaleable() && !$_product->canConfigure()): ?>
+																				<p class="action"><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+																			<?php elseif($_product->isSaleable()): ?>
+																				<p class="action"><a title="<?php echo $this->__('View Details') ?>" class="button" href="<?php echo $_product->getProductUrl() ?>"><?php echo $this->__('View Details') ?></a></p>
+																			<?php else: ?>
+																				<p class="action availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+																			<?php endif; ?>
+																			<ul class="add-to-links">
+																				<?php if ($this->helper('wishlist')->isAllow()) : ?>
+																					<li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+																				<?php endif; ?>
+																				<?php //if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+																					<li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+																				<?php //endif; ?>
+																			</ul>
+																		</div>
+																														</div>
+																</div>
+															</div>
+														</li>
+														
+														<?php 
+															if($cpc == 5): ?>
+																</ul><ul class="product_list grid row products-block  item  style2 ">
+														<?php endif; 
+															$cpc = $cpc - 1; endforeach; ?>
+													</ul>
+												<?php endif;?>
+									</div>
+								</div>
+							</div>
+							<?php $sc =$sc+1; endforeach; endif;?>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		
+<script>
+	jQuery(function() {
+		//jQuery( ".category_product_tab" ).tabs();
+	});
+</script>

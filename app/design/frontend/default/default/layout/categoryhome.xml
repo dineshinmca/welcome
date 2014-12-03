@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <categoryhome_index_index>
+        <reference name="content">
+            <block type="categoryhome/categoryhome" name="categoryhome" template="categoryhome/categoryhome.phtml" />
+        </reference>
+    </categoryhome_index_index>
+	<categoryhome_index_category>
+        <reference name="content">
+            <block type="categoryhome/categoryhome" name="categoryhome" template="categoryhome/categoryhome.phtml" />
+        </reference>
+    </categoryhome_index_category>
+</layout> 

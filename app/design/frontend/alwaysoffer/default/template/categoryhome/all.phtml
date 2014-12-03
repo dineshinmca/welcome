@@ -1,0 +1,135 @@
+<?php 
+	$categoryObj = Mage::getModel('catalog/category');
+	$categories = $categoryObj->getCollection()
+													->addAttributeToFilter('level', 2)//2 is actually the first level
+													->addAttributeToFilter('is_active', 1)
+													 ->addAttributeToSort('position','asc');
+	?>
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+			$("#LoadingImage").show();
+			var baseUrl = "<?php echo Mage::getBaseUrl();?>";
+			<?php 		
+				foreach ($categories->getData() as $_category) { 
+			?>
+				$.ajaxQueue({
+				url: baseUrl+"categoryhome/index/category/",
+				data: {catid : <?php echo $_category['entity_id'];?> },
+				type: 'GET',
+				success: function(data) {
+					jQuery("#LoadingImage").hide();
+					jQuery( "#ptssubcategoriestab_block" ).append( data );
+				}
+				});
+				<?php } ?>
+			}); 
+
+(function($) {
+var ajaxQueue = $({});
+$.ajaxQueue = function( ajaxOpts ) {
+	var jqXHR,
+		dfd = $.Deferred(),
+		promise = dfd.promise();
+	ajaxQueue.queue( doRequest );
+	promise.abort = function( statusText ) {
+	if ( jqXHR ) {
+		return jqXHR.abort( statusText );
+	}
+	var queue = ajaxQueue.queue(),
+		index = $.inArray( doRequest, queue );
+	if ( index > -1 ) {
+		queue.splice( index, 1 );
+	}
+	dfd.rejectWith( ajaxOpts.context || ajaxOpts,
+			[ promise, statusText, "" ] );
+		return promise;
+	};
+	function doRequest( next ) {
+		jqXHR = $.ajax( ajaxOpts )
+			.then( next, next )
+			.done( dfd.resolve )
+			.fail( dfd.reject );
+	}
+	return promise;
+};
+})(jQuery);
+</script>
+        <script type="text/javascript">
+        //<![CDATA[
+        	
+			function productAddToAjaxCartForm(el,url) {
+				
+				var img =jQuery(el).parents().eq(4).find("img").eq(0);
+			    var data = jQuery.get(url[data])
+                data += '&isAjax=1';
+                jQuery.ajax({
+                          url: url,
+                          dataType: 'json',
+                          type : 'post',
+                          data: data,
+                          success: function(data){
+								//console.log(data.message);
+								jQuery('#updatecart').html(data.message);
+								flytocart(img);
+								jQuery('#cart .heading').fadeTo(100, 0.1).fadeTo(200, 1.0);
+					      }
+                    });
+                
+            }
+   
+   
+    function flytocart(img) {
+        var cart = jQuery('#cart .heading');
+        var imgtodrag = img;
+        if (imgtodrag) {
+            var imgclone = imgtodrag.clone()
+                .offset({
+                top: imgtodrag.offset().top,
+                left: imgtodrag.offset().left
+            })
+                .css({
+                'opacity': '0.5',
+                    'position': 'absolute',
+                    'height': '150px',
+                    'width': '150px',
+                    'z-index': '100'
+            })
+                .appendTo(jQuery('body'))
+                .animate({
+                'top': cart.offset().top + 10,
+                    'left': cart.offset().left + 10,
+                    'width': 75,
+                    'height': 75
+            }, 1000, 'easeInOutExpo');
+ 
+            setTimeout(function () {
+                cart.effect("shake", {
+                    times: 2
+                }, 200);
+            }, 1500);
+ 
+            imgclone.animate({
+                'width': 0,
+                    'height': 0
+            }, function () {
+                jQuery(this).detach()
+            });
+        }
+    }
+        //]]>
+        </script>
+<section class="offcanvas-siderbars" id="columns">
+	<div id="LoadingImage"></div>
+	<div class="container main-content">
+		 <div class="row">
+			<div class="center_column col-xs-12 col-sm-12 col-md-12 col-lg-12" id="center_column">
+			  <div class="row" id="content">
+				<div class="clearfix"> 
+				  <!-- MODULE Block reinsurance -->
+				  <div class="block products_block" id="ptssubcategoriestab_block">
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

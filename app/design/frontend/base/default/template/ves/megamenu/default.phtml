@@ -1,0 +1,47 @@
+<?php
+/******************************************************
+ * @package Ves Megamenu module for Magento 1.4.x.x and Magento 1.7.x.x
+ * @version 1.0.0.1
+ * @author http://landofcoder.com
+ * @copyright	Copyright (C) December 2010 LandOfCoder.com <@emai:landofcoder@gmail.com>.All rights reserved.
+ * @license		GNU General Public License version 2
+*******************************************************/
+?>
+<div class="container-inner clearfix">
+    <nav id="cavas_menu" class="col-lg-9 col-md-9 col-sm-12 col-xs-12 sf-contener pts-megamenu pull-right">
+        <div class="navbar" role="navigation">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            </div>                  
+            <div id="pts-top-menu" class="collapse navbar-collapse navbar-ex1-collapse">
+                <?php echo $menuHtml; ?>
+            </div>
+        </div>
+	</div>
+<!--<script type="text/javascript">
+jQuery(window).ready( function(){
+
+	/*  Fix First Click Menu */
+	jQuery(document.body).on('click', '#mainmenutop [data-toggle="dropdown"]' ,function(event){
+		event.stopImmediatePropagation();
+		jQuery(this).parent().show();
+		if(!jQuery(this).parent().hasClass('open') && this.href && this.href != '#'){
+			window.location.href = this.href;
+		}
+
+	});
+	jQuery(document.body).on('dblclick', '#mainmenutop [data-toggle="dropdown"]' ,function(event){
+		event.stopImmediatePropagation();
+		jQuery(this).parent().show();
+		if(!jQuery(this).parent().hasClass('open') && this.href && this.href != '#'){
+			window.location.href = this.href;
+		}
+
+	});
+});
+</script>-->

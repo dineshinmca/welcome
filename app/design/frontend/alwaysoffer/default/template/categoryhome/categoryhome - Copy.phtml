@@ -1,0 +1,29 @@
+<?php 
+	echo '<h1>Categories</h1><pre>';
+	echo $catid = $this->getRequest()->getParam('catid');
+	 
+	?> 
+	<div class="cat_container">
+	<?php
+		$categoryHome = Mage::getModel('categoryhome/categoryhome');
+		$categoryObj = Mage::getModel('catalog/category');
+		$parCat = $categoryObj->load($catid);
+		echo '<div class="cat_name">'.$parCat->getName().'</div>';
+		echo '<div class="cat_name">'.$parCat->getChildren().'</div>';
+		
+		echo '<div class="cat_image">'.$parCat->getImage().'</div>';
+		$collection = $categoryHome->getCategoryProducts($category_id);
+		print_r($collection->getData()); 
+		if(!empty($collection))
+		{
+			foreach ($collection as $_product):?>
+				<a href="<?php echo $_product->getProductUrl();?>"><img src="<?php echo Mage::helper('catalog/image')->init($_product, 'small_image')->resize(197, 167); ?>" />   </a>
+				<div><?php echo $_product->getName();?></div>
+			 <?php   endforeach;
+			}else
+				{
+					echo 'No products exists';
+			} 
+	
+?> 
+</div>

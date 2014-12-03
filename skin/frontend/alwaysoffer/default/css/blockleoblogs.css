@@ -1,0 +1,120 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+#blockleoblogstabs .carousel-controls {
+  right: 20px;
+}
+.rtl #blockleoblogstabs .carousel-controls {
+  left: 20px;
+  right: auto;
+}
+#blockleoblogstabs .carousel-controls .carousel-control {
+  border-color: #fff;
+  color: #fff;
+}
+#blockleoblogstabs .blog_block {
+  border-right: 1px solid #e5e5e5;
+  margin: 20px 0;
+}
+#blockleoblogstabs .block_content {
+  background: white;
+}
+#blockleoblogstabs .blog-viewmore {
+  margin: 10px 0;
+  overflow: hidden;
+}
+#blockleoblogstabs .blog-viewmore a {
+  font-style: italic;
+}
+#blockleoblogstabs .blog-viewmore a:after {
+  width: 20px;
+  display: inline-block;
+  float: right;
+  content: "\f178";
+  font: 12px/20px "FontAwesome";
+  margin-left: 7px;
+}
+
+.blog_container {
+  position: relative;
+}
+.blog_container .blog-image {
+  margin-bottom: 20px;
+  position: relative;
+  padding: 0 20px;
+  background-color: white;
+}
+.blog_container .blog-image img {
+  border-color: #f14e47;
+}
+.blog_container .blog-image > a:after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #f14e47;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.rtl .blog_container .blog-image > a:after {
+  right: 0;
+  left: auto;
+}
+.blog_container .media-body {
+  padding: 0 20px;
+}
+.blog_container .blog-title {
+  margin-top: 0;
+  text-transform: none;
+  height: 55px;
+  overflow: hidden;
+  font-size: 15px;
+}
+.blog_container .blog-title a {
+  line-height: 24px;
+  font-weight: 300;
+}
+.blog_container .blog-meta {
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.blog_container .blog-meta > span {
+  margin-right: 8px;
+}
+.rtl .blog_container .blog-meta > span {
+  margin-left: 8px;
+  margin-right: inherit;
+}
+.blog_container .blog-shortinfo {
+  margin-bottom: 10px;
+}
+.blog_container .created {
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #999;
+  margin-top: 20px;
+}

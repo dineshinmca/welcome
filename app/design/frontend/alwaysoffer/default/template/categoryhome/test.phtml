@@ -1,0 +1,80 @@
+<div class="category_item block clearfix cat_snack">
+	<div class="block category_productlist col-lg-3 col-md-3 col-md-12 col-xs-12">
+		<h4 class="title_block"><span>New Products</span></h4>
+		<div id="tab-cat15-carousel" class="carousel slide">
+		 	<div class="carousel-controls">
+				<a data-slide="prev" href="#tab-cat15-carousel" class="carousel-control left">‹</a>
+				<a data-slide="next" href="#tab-cat15-carousel" class="carousel-control right">›</a>
+			</div>
+			<div class="carousel-inner">
+				<?php $npCollection = $categoryHome->getCategoryNewProducts($category_id);
+				if(!empty($npCollection)){ ?>
+					<ul class="product_list grid row products-block  item active style2 ">
+					<?php foreach ($npCollection as $_product):?>
+						<li class="col-xs-12 col-sm-6 col-md-3 col-lg-12 ajax_block_product first_item">
+							<div class="product-block">
+								<div class="product-container">
+									<div class="product-image-container image">
+										<a title="<?php echo $_product->getName();?>" class="img product_img_link" href="<?php echo $_product->getProductUrl();?>">						
+											<img class="img-responsive pts-image" alt="Integer velit mauris" src="<?php echo Mage::helper('catalog/image')->init($_product, 'small_image')->resize(197, 167); ?>">
+											<span class="product-label new-box"><span class="new-label">New</span></span>
+											<span class="product-label sale-box"><span class="sale-label">Reduced price!</span></span>
+										</a>
+									</div>
+									<div class="product-meta">
+										<h3><?php echo $_product->getName();?></h3>
+										
+									</div>
+							</div>
+						</li>
+						<a href="<?php echo $_product->getProductUrl();?>"><img src="<?php echo Mage::helper('catalog/image')->init($_product, 'small_image')->resize(197, 167); ?>" />   </a>
+						<div><?php echo $_product->getName();?></div>
+					 <?php   endforeach; ?>
+					 </ul>
+					 <?php
+				}else{
+					echo 'No products exists';
+				} 
+				
+				?>
+				
+					
+				
+			</div>
+		</div>
+	</div>
+	<div class="inner col-lg-9 col-md-9 col-md-12 col-xs-12">
+        <div class="category_sub">
+            <h3 class="category_title pull-left">Delicious Snacks</h3>
+                <ul class="nav nav-stacked pull-right">
+                    <li class="active">
+                        <a data-toggle="tab" href="#tab-cat15-sub29">
+							Trends
+                        </a>
+					</li>
+                </ul>
+        </div>
+        <div class="category_desc hidden-md hidden-sm hidden-xs">
+            <img alt="Delicious Snacks" src="http://pavodemo.com/prestabrain/megashop/food/modules/ptssubcategoriestab/img/reinsurance-1-1.jpg" class="img-responsive"> 
+        </div>
+		<div class="category_content">
+			<div class="category_product_tab" id="product_tab_content_15">
+				<div class="product_tab_content tab-content">
+					<div id="tab-cat15-sub29" class="tab-pane active">
+						 <div id="tab-cat15-sub29-carousel" class="boxcarousel products_block slide products-rows ">
+							<div class="carousel-controls">
+								<a data-slide="prev" href="#tab-cat15-sub29-carousel" class="carousel-control left">‹</a>
+								<a data-slide="next" href="#tab-cat15-sub29-carousel" class="carousel-control right">›</a>
+							</div>
+						<div style="overflow: visible;" class="carousel-inner">
+							<ul class="product_list grid row products-block  item active style2 ">
+								<li class="ajax_block_product col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	

@@ -1,0 +1,134 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+/* Top hook CSS */
+#ptsstaticontent_top {
+  margin-bottom: 0;
+}
+
+/* Left hook CSS */
+#ptsstaticontent_left .nopadding {
+  padding: 0;
+}
+#ptsstaticontent_left ul > li .image-banner {
+  margin-bottom: 30px;
+}
+#ptsstaticontent_left ul > li:last-child .image-banner {
+  margin: 0;
+}
+
+/* Right hook CSS */
+#ptsstaticontent_right .nopadding {
+  padding: 0;
+}
+#ptsstaticontent_right ul > li .image-banner {
+  margin-bottom: 30px;
+}
+#ptsstaticontent_right ul > li:last-child .image-banner {
+  margin: 0;
+}
+
+/* Slide hook CSS */
+#ptsstaticontent_slideshow .staticontent-item {
+  margin-bottom: 18px;
+}
+
+/* Promotion hook CSS */
+#ptsstaticontent_promotetop {
+  margin: 0;
+  padding: 30px 0;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  #ptsstaticontent_promotetop {
+    margin: 30px 0;
+  }
+}
+@media (max-width: 480px) {
+  #ptsstaticontent_promotetop {
+    margin: 0;
+  }
+}
+
+/* Home hook CSS */
+@media (max-width: 991px) {
+  #ptsstaticontent_home {
+    margin: 0;
+  }
+}
+#ptsstaticontent_home ul > li {
+  padding: 0;
+}
+
+/*Bottom hook css*/
+@media (max-width: 991px) {
+  #ptsstaticontent_bottom {
+    margin: 0;
+  }
+}
+
+/* Footer hook CSS */
+#ptsstaticontent_footer .footer-intro .img-logo {
+  margin: 5px 0 15px 0;
+}
+
+#ptsstaticontent_footerbottom .staticontent-item {
+  padding: 10px 15px;
+}
+
+.staticontent-item .hr {
+  position: relative;
+}
+.staticontent-item .hr:before, .staticontent-item .hr:after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  top: 50%;
+  width: 22%;
+}
+.staticontent-item .hr:before {
+  left: 0;
+}
+.staticontent-item .hr:after {
+  right: 0;
+}
+
+.box-services {
+  padding: 25px 0;
+}
+.box-services .iconbox {
+  float: left;
+  margin-right: 5px;
+}
+.rtl .box-services .iconbox {
+  float: right;
+}
+.rtl .box-services .iconbox {
+  margin-left: 5px;
+  margin-right: inherit;
+}
+.box-services .media-body h4 {
+  margin: 0 0 3px 0;
+  font-family: "kelson-regular";
+  font-size: 14px;
+  color: #268bb9;
+  text-transform: none;
+}

@@ -1,0 +1,59 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+.contactinfos ul li {
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+.contactinfos ul li .icon {
+  color: white;
+  font-size: 12px;
+  margin-right: 8px;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  background: #8c8c8c;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+.rtl .contactinfos ul li .icon {
+  margin-left: 8px;
+  margin-right: inherit;
+}
+.contactinfos ul li:hover {
+  color: white;
+  cursor: pointer;
+}
+.contactinfos ul li:hover a, .contactinfos ul li:hover span {
+  color: white;
+}
+.contactinfos ul li:hover .icon {
+  background-color: #268bb9;
+}
+.contactinfos #fancybox-map {
+  display: none;
+}

@@ -1,0 +1,82 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+/*******************************************************************
+					ptsblockmanufacturer
+********************************************************************/
+.ptsblockmanufacturer .carousel-inner .block_manuf a {
+  display: block;
+  text-align: center;
+  position: relative;
+  z-index: 9;
+}
+@media (max-width: 991px) {
+  .ptsblockmanufacturer .carousel-inner .block_manuf a {
+    margin-bottom: 10px;
+  }
+}
+.ptsblockmanufacturer .carousel-inner .block_manuf a img {
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  display: inline-block;
+  opacity: 0.7;
+}
+@media (min-width: 992px) {
+  .ptsblockmanufacturer .carousel-inner .block_manuf a img {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
+    filter: grayscale(100%);
+    /* Current draft standard */
+    -webkit-filter: grayscale(100%);
+    /* New WebKit */
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: gray;
+    /* IE6+ */
+  }
+}
+.ptsblockmanufacturer .carousel-inner .block_manuf a:hover img {
+  filter: grayscale(0%);
+  /* Current draft standard */
+  -webkit-filter: grayscale(0%);
+  /* New WebKit */
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: none;
+  /* IE6+ */
+  opacity: 1;
+}
+.ptsblockmanufacturer .block_content {
+  background-color: white;
+  position: relative;
+  padding: 45px 35px;
+}
+.ptsblockmanufacturer .carousel-controls {
+  width: 100%;
+  top: 46%;
+}
+.ptsblockmanufacturer .carousel-controls .carousel-control.left {
+  left: 20px;
+}
+.ptsblockmanufacturer .carousel-controls .carousel-control.right {
+  right: 20px;
+}

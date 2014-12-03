@@ -1,0 +1,199 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+@media (min-width: 480px) and (max-width: 991px) {
+  #pts_search_block_top {
+    height: auto !important;
+    position: absolute;
+    bottom: -50px;
+  }
+  #pts_search_block_top #searchbox {
+    float: right;
+  }
+  .rtl #pts_search_block_top #searchbox {
+    float: left;
+  }
+}
+#pts_search_block_top #searchbox {
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  display: table;
+  z-index: 9;
+}
+#pts_search_block_top #searchbox > div {
+  display: table-cell;
+}
+#pts_search_block_top #searchbox .search_query {
+  display: inline;
+  padding: 8px 10px 8px 10px;
+  height: 40px;
+  min-width: 310px;
+  margin-right: -1px;
+  border: 1px solid #e5e5e5;
+  color: #828282;
+}
+.rtl #pts_search_block_top #searchbox .search_query {
+  padding: 8px 10px 8px 10px;
+}
+.rtl #pts_search_block_top #searchbox .search_query {
+  margin-left: -1px;
+  margin-right: inherit;
+}
+@media (max-width: 767px) {
+  #pts_search_block_top #searchbox .search_query {
+    min-width: inherit;
+    width: 120px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  #pts_search_block_top #searchbox .search_query {
+    min-width: 190px;
+  }
+}
+#pts_search_block_top .input-group-select {
+  float: left;
+  position: relative;
+}
+.rtl #pts_search_block_top .input-group-select {
+  float: right;
+}
+#pts_search_block_top .input-group-select .icon {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  width: 20px;
+  height: 38px;
+  line-height: 40px;
+  color: #000;
+  background: #fff;
+  text-align: left;
+}
+.rtl #pts_search_block_top .input-group-select .icon {
+  left: 0;
+  right: auto;
+}
+.rtl #pts_search_block_top .input-group-select .icon {
+  text-align: right;
+}
+#pts_search_block_top select {
+  height: 40px;
+  margin-right: -1px;
+  border: 1px solid #e5e5e5;
+  padding: 8px;
+  color: #828282;
+  -moz-border-radius-topleft: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-top-left-radius: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.rtl #pts_search_block_top select {
+  margin-left: -1px;
+  margin-right: inherit;
+}
+.rtl #pts_search_block_top select {
+  -moz-border-radius-topright: 2px;
+  -webkit-border-top-right-radius: 2px;
+  border-top-right-radius: 2px;
+  -moz-border-radius-topleft: inherit;
+  -webkit-border-top-left-radius: inherit;
+  border-top-left-radius: inherit;
+}
+.rtl #pts_search_block_top select {
+  -moz-border-radius-bottomright: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -moz-border-radius-bottomleft: inherit;
+  -webkit-border-bottom-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+@media (max-width: 570px) {
+  #pts_search_block_top select {
+    padding: 8px 3px;
+  }
+}
+@media (max-width: 415px) {
+  #pts_search_block_top select {
+    width: 90px;
+    font-size: 10px;
+  }
+}
+#pts_search_block_top .btn.button-search {
+  height: 40px;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: -5px;
+  float: right;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+.rtl #pts_search_block_top .btn.button-search {
+  margin-right: -5px;
+  margin-left: inherit;
+}
+.rtl #pts_search_block_top .btn.button-search {
+  float: left;
+}
+#pts_search_block_top .btn.button-search:hover {
+  background: #333333;
+}
+#pts_search_block_top .btn.button-search .icon {
+  display: none;
+}
+
+.ac_results {
+  border: 1px solid #e0e0e0;
+}
+.ac_results ul li {
+  padding: 15px;
+  background-color: white;
+  border-top: 1px dashed #e0e0e0;
+}
+.ac_results ul li:first-child {
+  border-top: none;
+}
+.ac_results ul li img {
+  height: auto;
+  width: 60px;
+  margin-right: 20px;
+}
+.rtl .ac_results ul li img {
+  margin-left: 20px;
+  margin-right: inherit;
+}
+.ac_results ul li div.name {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.ac_results ul li .price {
+  font-weight: normal;
+  font-size: 14px;
+}
+.ac_results ul li.ac_over {
+  background-color: #fafafa;
+}
+.ac_results ul li.ac_over .name {
+  color: #268bb9;
+}

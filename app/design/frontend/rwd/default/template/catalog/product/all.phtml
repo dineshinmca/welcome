@@ -1,0 +1,38 @@
+<?php 
+	$categoryObj = Mage::getModel('catalog/category');
+	$categories = $categoryObj->getCollection()
+													->addAttributeToFilter('level', 2)//2 is actually the first level
+													->addAttributeToFilter('is_active', 1)
+													 ->addAttributeToSort('position','asc');
+	
+	foreach ($categories->getData() as $_category) { 
+		echo $_category['entity_id'];
+		?>
+			<script type="text/javascript">
+			 jQuery(document).ready(function(){
+				jQuery("#LoadingImage").show();
+				var baseUrl = "<?php echo Mage::getBaseUrl();?>";
+				var request = jQuery.ajax({
+				url: baseUrl+"categoryhome/index/category/",
+				type: "GET",
+				data: { catid : <?php echo $_category['entity_id'];?> },
+				dataType: "html"
+				});
+				request.done(function( msg ) {
+				jQuery("#LoadingImage").hide();
+				jQuery( "#ptssubcategoriestab_block" ).append( msg );
+				});
+				request.fail(function( jqXHR, textStatus ) {
+				alert( "Request failed: " + textStatus );
+				}); 
+			});
+	
+		</script>
+		<?php
+		//break;
+	}
+	
+?>
+<div id="LoadingImage"></div>
+<div id="ptssubcategoriestab_block" style="border:1px solid">
+</div>

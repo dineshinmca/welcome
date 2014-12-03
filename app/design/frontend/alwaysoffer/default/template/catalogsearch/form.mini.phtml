@@ -1,0 +1,74 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/* @var $this Mage_Core_Block_Template */
+/* @var $catalogSearchHelper Mage_Catalogsearch_Helper_Data */
+	$catalogSearchHelper =  $this->helper('catalogsearch');
+    $category = Mage::getModel('catalog/category');
+    if(is_object(Mage::registry('current_category'))){
+        $currentCategoryPath=Mage::registry('current_category')->getPathIds();
+    }else{
+        $currentCategoryPath = array();
+    }
+    //$category->load(Mage::app()->getStore()->getRootCategoryId());
+	$category->load(2);
+    $childrenString = $category->getChildren();
+    $children = explode(',',$childrenString);
+    $categoryOptions='';
+    $categoryLi='';
+    foreach($children as $c){
+        if($this->getRequest()->getParam('cat')==""){
+            $selected = (in_array($c, $currentCategoryPath))?'SELECTED':'';
+        }else{
+            $selected = ($this->getRequest()->getParam('cat')==$c)?'SELECTED':'';
+    }    
+	if($category->load($c)->getName()!="Education")
+	{
+	$categoryOptions.= '<option class="'.str_replace(' ','_',trim($category->load($c)->getName())).'" value="' . $c . '" ' . $selected . '>' . $category->load($c)->getName() . '</option>' . "\n";
+	$categoryLi.='<li class="'.str_replace(' ','_',trim($category->load($c)->getName())).'">'.$category->load($c)->getName().'</li>';	
+	}
+    }
+ 
+?>
+
+<form id="searchbox" action="<?php echo $catalogSearchHelper->getResultUrl() ?>" method="get">
+  <div class="clearfix">
+    <input id="pts_search_query_top" type="search" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>" class="search_query ac_input input-text required-entry" maxlength="<?php echo $catalogSearchHelper->getMaxQueryLength();?>" placeholder="<?php echo $this->__('Search....') ?>" />
+    <div class="input-group-select">
+      <select name="cat" id="category_filter" name="category_filter">
+      <option class="def" value="">All Catagories</option>
+      <?php echo $categoryOptions ?>
+      </select>
+      <i class="icon icon-angle-down"></i> </div>
+    <button type="submit" title="<?php echo $this->__('Search') ?>" class="btn btn-default btn-primary button-search"><i class="icon icon-search"></i><span><?php echo $this->__('Search') ?></span></button>
+  </div>
+  <div id="search_autocomplete" class="search-autocomplete"></div>
+  <script type="text/javascript">
+    //<![CDATA[
+        var searchForm = new Varien.searchForm('search_mini_form', 'search', '');
+        searchForm.initAutocomplete('<?php echo $catalogSearchHelper->getSuggestUrl() ?>', 'search_autocomplete');
+    //]]>
+    </script>
+</form>

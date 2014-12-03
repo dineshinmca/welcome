@@ -1,0 +1,136 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+.pts-newsletter {
+  min-height: 95px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+.pts-newsletter .title_block {
+  padding: 10px 15px;
+  text-align: right;
+  background-color: transparent;
+  font-size: 15px;
+}
+.rtl .pts-newsletter .title_block {
+  text-align: left;
+}
+@media (max-width: 991px) {
+  .pts-newsletter .title_block {
+    text-align: center;
+  }
+}
+.pts-newsletter .block_content {
+  overflow: hidden;
+  padding-top: 0;
+}
+@media (max-width: 991px) {
+  .pts-newsletter .block_content {
+    text-align: center;
+  }
+}
+.pts-newsletter .description {
+  display: none;
+}
+.pts-newsletter input {
+  height: 40px;
+  line-height: 40px;
+}
+.pts-newsletter .form-group {
+  position: relative;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0;
+  width: 70%;
+}
+@media (max-width: 991px) {
+  .pts-newsletter .form-group {
+    display: inline-block;
+  }
+}
+.pts-newsletter .form-group:before {
+  color: #828282;
+  top: 11px;
+  left: 10px;
+  width: 16px;
+  height: 16px;
+  content: "\f0e0";
+  position: absolute;
+  font: 14px "FontAwesome";
+}
+.rtl .pts-newsletter .form-group:before {
+  right: 10px;
+  left: auto;
+}
+.pts-newsletter .newsletter-input {
+  padding: 0 120px 0 30px;
+  background-color: white;
+  border-color: white;
+  color: #828282;
+}
+.pts-newsletter .button-newsletter {
+  padding: 0 14px;
+  background-color: #268bb9;
+  border: 1px solid transparent;
+  color: white;
+  font-size: 14px;
+  font-family: "shruti-bold";
+  height: 40px;
+  line-height: 40px;
+  -moz-border-radius-topleft: 0px;
+  -webkit-border-top-left-radius: 0px;
+  border-top-left-radius: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+.rtl .pts-newsletter .button-newsletter {
+  -moz-border-radius-topright: 0px;
+  -webkit-border-top-right-radius: 0px;
+  border-top-right-radius: 0px;
+  -moz-border-radius-topleft: inherit;
+  -webkit-border-top-left-radius: inherit;
+  border-top-left-radius: inherit;
+}
+.rtl .pts-newsletter .button-newsletter {
+  -moz-border-radius-bottomright: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  -moz-border-radius-bottomleft: inherit;
+  -webkit-border-bottom-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+.rtl .pts-newsletter .button-newsletter {
+  left: 0;
+  right: auto;
+}
+.pts-newsletter .button-newsletter:hover {
+  background-color: #f14e47;
+}

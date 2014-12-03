@@ -1,0 +1,76 @@
+/**
+ * Web Application Prefix Apply For Making Owner Styles
+ */
+/**
+ *   Blocks Layout Selectors 
+ */
+/**
+ * Product Item Selectors
+ */
+/***********************************************************************/
+/**
+* Transition-timing-function property@mixin 
+*/
+/*background RGBA
+============================================*/
+/****/
+/* RIGHT TO LEFT */
+/** CHECKOUT BY STEP */
+/*  
+ * LAYOUT VARIABLES 
+ */
+#search_block_top {
+  margin: 8px 10px 8px 0;
+}
+.rtl #search_block_top {
+  margin: 8px 0 8px 10px;
+}
+#search_block_top form#searchbox {
+  position: relative;
+  text-align: center;
+}
+#search_block_top form#searchbox .search_query {
+  display: inline;
+  padding: 0 36px 0 10px;
+  height: 36px;
+  line-height: 36px;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border: none;
+}
+.rtl #search_block_top form#searchbox .search_query {
+  padding: 0 10px 0 36px;
+}
+#search_block_top .btn.button-search {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  color: black;
+  padding: 0;
+  background-color: transparent;
+}
+.rtl #search_block_top .btn.button-search {
+  left: 0;
+  right: auto;
+}
+#search_block_top .btn.button-search span {
+  display: none;
+}
+#search_block_top .btn.button-search:before {
+  content: "\f002";
+  display: block;
+  font-family: "FontAwesome";
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  font-weight: 300;
+}
+#search_block_top .btn.button-search:hover {
+  color: #6f6f6f;
+}

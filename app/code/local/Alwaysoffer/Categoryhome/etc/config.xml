@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Alwaysoffer
+ * @package    Alwaysoffer_Categoryhome
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Alwaysoffer_Categoryhome>
+            <version>0.1.0</version>
+        </Alwaysoffer_Categoryhome>
+    </modules>
+    <frontend>
+        <routers>
+            <categoryhome>
+                <use>standard</use>
+                <args>
+                    <module>Alwaysoffer_Categoryhome</module>
+                    <frontName>categoryhome</frontName>
+                </args>
+            </categoryhome>
+        </routers>
+        <layout>
+            <updates>
+                <categoryhome>
+                    <file>categoryhome.xml</file>
+                </categoryhome>
+            </updates>
+        </layout>
+    </frontend>
+     
+    <global>
+        <models>
+            <categoryhome>
+                <class>Alwaysoffer_Categoryhome_Model</class>
+            </categoryhome>
+        </models>
+        <blocks>
+            <categoryhome>
+                <class>Alwaysoffer_Categoryhome_Block</class>
+            </categoryhome>
+        </blocks>
+        <helpers>
+            <categoryhome>
+                <class>Alwaysoffer_Categoryhome_Helper</class>
+            </categoryhome>
+        </helpers>
+    </global>
+</config>

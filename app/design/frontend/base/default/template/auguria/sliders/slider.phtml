@@ -1,0 +1,137 @@
+<?php
+/**
+ * @category   Auguria
+ * @package    Auguria_Sliders
+ * @author     Auguria
+ * @license    http://opensource.org/licenses/gpl-3.0.html GNU General Public License version 3 (GPLv3)
+ */
+?>
+<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 block_verticalmenu">
+    <div class="verticalmenu" id="pts-verticalmenu">
+        <h4 class="title_block vertical_title"><span>Vertical Megamenu<i class="icon icon-sort-down pull-right"></i></span></h4>
+		<?php echo Mage::app()->getLayout()->createBlock('ves_verticalmenu/top')->toHtml();?>
+	</div>
+</div>
+<?php
+//die();
+$slides = $this->getSlides();
+$imageWidth = $this->getImageWidth();
+$imageHeight = $this->getImageHeight();
+$captionHeight = $this->getCaptionHeight();
+
+if ($slides && $slides->count()>0):
+?>
+<div class="layerslider-wrapper hidden-xs col-md-6 col-sm-12 col-xs-12">
+    <div class="bannercontainer banner-boxed hidden-xs">
+		<div id="sliderlayer">
+			<ul>
+			<?php
+			foreach ($slides as $slide):
+				$displayLink = $this->displayLink($slide);
+				$displayImage = $this->displayImage($slide);
+				$displayCmsContent = $this->displayCmsContent($slide);
+			?>
+			<li data-masterspeed="300"  data-transition="random" data-slotamount="7" data-thumb="<?php echo $this->getResizedImage($slide, $imageWidth, $imageHeight); ?>"> <img src="<?php echo $this->getResizedImage($slide, $imageWidth, $imageHeight); ?>" alt="<?php echo $slide->getName(); ?>"/>
+				<?php
+				if ($displayCmsContent):
+				?>
+				<?php $text = explode('/n',$slide->getCmsContent());?>
+				<div class="caption large_text lfl easeOutExpo                        "
+                         data-x="40"
+                         data-y="90"
+                         data-speed="300"
+                         data-start="2400"
+                         data-easing="easeOutExpo"                           style="font-size:54px;color:#ffffff"> <span style="font-weight: 700;"><?php echo $text[0];?> </span> </div>
+                  <div class="caption medium_text lfr easeOutExpo                        "
+                         data-x="45"
+                         data-y="45"
+                         data-speed="300"
+                         data-start="2400"
+                         data-easing="easeOutExpo"                           style="font-size:26px;color:#ffffff"> <span style="font-weight: 500;"><?php echo $text[1];?></span> </div>
+                  <div class="caption randomrotate easeOutExpo                        "
+                         data-x="45"
+                         data-y="155"
+                         data-speed="300"
+                         data-start="2800"
+                         data-easing="easeOutExpo"                           style="font-size:14px;color:#ffffff"> <span style="font-weight: 300;"><?php echo $text[3];?></span> </div>
+				<?php
+				endif;
+				?>
+			</li>
+			<?php
+			endforeach;
+			?>
+			</ul>
+		</div>
+	</div>
+	
+</div>
+<script type="text/javascript">
+	    var homeslider_loop = true;
+		var homeslider_pause = '3000';
+		var homeslider_speed = '500';
+		var homeslider_width = '779';
+		jQuery("#sliderlayer").revolution(
+			{
+				delay:9000,
+				startheight:406,
+				startwidth:576,
+				hideThumbs:200,
+				thumbWidth:100,                     
+				thumbHeight:50,
+				thumbAmount:5,
+				navigationType:"bullet",
+				navigationArrows:"verticalcentered",                
+				navigationStyle:"round",          
+				navOffsetHorizontal:0,
+				navOffsetVertical:20,  
+				touchenabled:"on",         
+				onHoverStop:"on",                     
+				shuffle:"on",  
+				stopAtSlide: 1,                        
+				stopAfterLoops:0,                     
+				hideCaptionAtLimit:0,              
+				hideAllCaptionAtLilmit:0,              
+				hideSliderAtLimit:0,           
+				fullWidth:"off",
+				shadow:0
+			}
+				);
+				 
+		/* 	tpj( document ).ready(function() {
+				tpj('.caption',tpj('#sliderlayer')).click(function(){
+					if(tpj(this).data('link') != undefined && $(this).data('link') != '') location.href = tpj(this).data('link');
+				});
+			 }); */
+</script>
+<div class="block " id="ptsstaticontent_slideshow">
+  <ul class="staticontent-home">
+	<li class="staticontent-item-1 staticontent-item col-lg-3 col-md-3 col-sm-3 hidden-xs hidden-sm"> 
+	  <!---->
+	  <div class="image-banner "><img alt="" class="item-img" src="http://pavodemo.com/prestabrain/megashop/food/modules/ptsstaticcontent/images/banner-slideshow01.jpg"></div>
+	  <!----> 
+	</li>
+	<li class="staticontent-item-2 staticontent-item col-lg-3 col-md-3 col-sm-3 hidden-xs  pull-right hidden-sm"> 
+	  <!---->
+	  <div class="image-banner "><img alt="" class="item-img" src="http://pavodemo.com/prestabrain/megashop/food/modules/ptsstaticcontent/images/banner-slideshow02.jpg"></div>
+	  <!----> 
+	</li>
+  </ul>
+</div>
+<div class="block products_block exclusive blockptsproducttabs dark clearfix col-xs-12 col-sm-12 col-md-6 col-lg-6" id="ptsproducttabs">
+        <div class="tab-nav">
+            <ul class="nav nav-theme" id="productTabs">
+              <li><a data-toggle="tab" href="#tabbestseller">Best Seller</a></li>
+            </ul>
+         </div>
+        <div id="product_tab_content">
+            <div class="product_tab_content tab-content">
+				<div id="tabbestseller" class="tab-pane active">
+					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('bestseller')->toHtml();?>
+				</div>
+			</div>
+		</div>
+</div>
+<?php
+endif;
+?>
