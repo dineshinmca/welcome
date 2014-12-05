@@ -25,24 +25,18 @@
  */
 ?>
 <?php
-	$_item = $this->getItem();
+    $_item = $this->getItem();
     $isVisibleProduct = $_item->getProduct()->isVisibleInSiteVisibility();
     $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_BEFORE_ORDER_CONFIRM);
 ?>
-<dt class="item" xmlns="http://www.w3.org/1999/html">
+<li class="item" xmlns="http://www.w3.org/1999/html">
     <?php if ($this->hasProductUrl()): ?>
-        <a href="<?php echo $this->getProductUrl()?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>" class="product-image">
-			<img src="<?php echo $this->getProductThumbnail()->resize(50, 50)->setWatermarkSize('30x10'); ?>" width="50" height="50" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" />
-		</a>
+        <a href="<?php echo $this->getProductUrl()?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>" class="product-image"><img src="<?php echo $this->getProductThumbnail()->resize(50, 50)->setWatermarkSize('30x10'); ?>" width="50" height="50" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" /></a>
     <?php else: ?>
         <span class="product-image"><img src="<?php echo $this->getProductThumbnail()->resize(50, 50)->setWatermarkSize('30x10'); ?>" width="50" height="50" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" /></span>
     <?php endif; ?>
-    <div class="cart-info">
-        <div class="product-name">
-			<?php if ($this->hasProductUrl()): ?>
-				<a href="<?php echo $this->getProductUrl() ?>"><?php endif; ?><?php echo $this->escapeHtml($this->getProductName()) ?><?php if ($this->hasProductUrl()): ?></a>
-			<?php endif; ?>
-		</div>
+    <div class="product-details">
+        <p class="product-name"><?php if ($this->hasProductUrl()): ?><a href="<?php echo $this->getProductUrl() ?>"><?php endif; ?><?php echo $this->escapeHtml($this->getProductName()) ?><?php if ($this->hasProductUrl()): ?></a><?php endif; ?></p>
 
         <table class="info-wrapper">
             <tbody>
@@ -159,13 +153,11 @@
         </a>
             |
             <?php if (!$this->isOnCheckoutPage()): ?>
-                <span class="remove_link">
-					<a href="<?php echo $this->getAjaxDeleteUrl() ?>" title="<?php echo $this->__('Remove This Item') ?>"
+                <a href="<?php echo $this->getAjaxDeleteUrl() ?>" title="<?php echo $this->__('Remove This Item') ?>"
                    data-confirm="<?php echo $this->__('Are you sure you would like to remove this item from the shopping cart?') ?>"
                    class="remove">
                     <?php echo $this->__('Remove Item') ?>
-					</a>
-				</span>
+                </a>
             <?php else: ?>
                 <span><?php echo $this->__('Remove Item') ?></span>
             <?php endif; ?>
@@ -194,4 +186,4 @@
         <?php endif; ?>
 
     </div>
-</dt>
+</li>

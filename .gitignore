@@ -1,3 +1,22 @@
+app/etc/local.xml
+errors/local.xml
+local.xml.phpunit
+*.swp
+*.swo
+.buildpath
+.project
+.settings/
+nbproject
+.nbproject
+.svn
+diff.txt
+.idea
+cp.php
+tmp/*
+media/*
+downloader/*
+var/*
+db/backup-*
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

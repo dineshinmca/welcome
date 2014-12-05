@@ -38,26 +38,25 @@
         $_cartQty = 0;
     }
 ?>
-
- <div id="cart" class="shopping_cart">
-          
+<div class="shopping_cart" id="cart">
 	<div class="heading">
-	  <div class="mini-cart">
-			<a rel="nofollow" title="View my shopping cart" href="#header-cart">
-				<span class="title-cart">My Cart</span> 
-				<span class="ajax_cart_quantity "><?php echo $_cartQty; ?></span>
-				<span class="ajax_cart_product_txt ">item(s)</span> 
-				<?php if($_cartQty ==0):?>
-				<span class="ajax_cart_no_product">0 item</span>
-				<?php endif;?>
+		<div class="mini-cart">	
+			<a href="#header-cart" class="skip-link skip-cart <?php if($_cartQty <= 0): ?> no-count<?php endif; ?>">
+				<span class="icon"></span>
+				<span class="title-cart">My Cart</span>
+				<span class="ajax_cart_quantity"><?php echo $_cartQty; ?></span>
+				<span class="ajax_cart_product_txt_s">item(s)</span>	
+				<span class="ajax_cart_total">
+					<span>- </span>
+					$90.75
+				</span>			
 				<i class="icon-angle-down"></i>
-			</a> 
+			</a>
 		</div>
 	</div>
-	
-	<div class="cart_block block exclusive" id="header-cart" style="">
-		<?php echo $this->getChildHtml('minicart_content');?>
+	<div class="cart_block block exclusive">
+		<div id="header-cart" class="block block-cart skip-content block_content">
+			<?php echo $this->getChildHtml('minicart_content');?>
+		</div>
 	</div>
-	<!-- .cart_block --> 
 </div>
-

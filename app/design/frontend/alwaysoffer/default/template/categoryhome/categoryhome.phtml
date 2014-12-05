@@ -130,24 +130,47 @@
                         <div class="product-image-container image"> <a title="<?php echo $_cproduct->getName();?>" class="img product_img_link" href="<?php echo $_cproduct->getProductUrl();?>"> <img class="img-responsive pts-image" alt="Integer velit mauris" src="<?php echo Mage::helper('catalog/image')->init($_cproduct, 'small_image')->resize(197, 167); ?>"> <span class="product-label new-box"><span class="new-label">New</span></span> <span class="product-label sale-box"><span class="sale-label">Reduced price!</span></span> </a>
                           <div class="wrap-hover">
                             <div class="action-btn">
-                              <div class="quickview"><a class="btn-tooltip quick-view pts-colorbox btn btn-highlighted cboxElement" href="<?php echo $_cproduct->getProductUrl();?>" rel="#" data-toggle="tooltip" title="<?php echo $this->__('Quick View') ?>" data-original-title="Quick View"> <i class="icon-eye"></i> <span>Quick view</span> </a></div>
-                              <div class="wishlist">
-                                <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                                <a class="btn-tooltip btn btn-highlighted addToWishlist" href="<?php echo $this->helper('wishlist')->getAddUrl($_cproduct) ?>" rel="nofollow" data-toggle="tooltip" title="" data-original-title="Wishlist"> <i class="icon icon-heart"></i><span>Wishlist</span> </a>
-                                <?php endif; ?>
-                              </div>
-                              <?php if($_compareUrl= Mage::helper('catalog/product_compare')->getAddUrl($_cproduct)): ?>
-                              <div class="compare">
-                                <a class="btn-tooltip btn btn-highlighted add_to_compare" href="<?php echo $_compareUrl ?>" data-id-product="8" data-toggle="tooltip" title="" data-original-title="Compare"> <i class="icon icon-retweet"></i><span>Compare</span></a>
-                              </div>
-							    <?php endif; ?>
+                              <div class="quickview"><a class="btn-tooltip quick-view pts-colorbox btn btn-highlighted cboxElement" href="<?php echo $_cproduct->getProductUrl();?>" rel="#" data-toggle="tooltip" title="<?php echo $this->__('Quick View') ?>" data-original-title="Quick View"> <i class="icon-eye"></i> <span>Quick view</span> </a>
+							  </div>
+							
+							<?php if(Mage::getStoreConfig('ajax/wishlistcompare/enabledpro')){?>
+							 <div class="wishlist">
+								<?php if ($this->helper('wishlist')->isAllow()) : ?>
+									<a class="btn-tooltip btn btn-highlighted addToWishlist link-wishlist" href="#" onclick='ajaxWishlist("<?php echo $this->helper('wishlist')->getAddUrl($_cproduct) ?>","<?php echo $_cproduct->getId()?>");return false;' data-toggle="tooltip" title="" data-original-title="Wishlist"> 
+									<i class="icon icon-heart"></i>
+									<span>Wishlist</span></a>
+								<?php endif; ?>
+								</div>
+								<?php if($_compareUrl=Mage::helper('catalog/product_compare')->getAddUrl($_cproduct)): ?>
+								 <div class="compare">
+									<a class="btn-tooltip btn btn-highlighted add_to_compare" href="#" onclick='ajaxCompare("<?php echo $_compareUrl ?>","<?php echo $_cproduct->getId()?>");return false;'  data-id-product="8" data-toggle="tooltip" data-original-title="Compare">
+									<i class="icon icon-retweet"></i>
+									<span>Compare</span>
+									</a>
+								</div>
+								<?php endif; ?>
+							
+							<span id='ajax_loading<?php echo $_cproduct->getId()?>' style='display:none'><img src='<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif')?>'/></span>
+							
+							<?php }else{?>
+								<div class="wishlist">
+									<?php if ($this->helper('wishlist')->isAllow()) : ?>
+									<a class="btn-tooltip btn btn-highlighted addToWishlist" href="<?php echo $this->helper('wishlist')->getAddUrl($_cproduct) ?>" rel="nofollow" data-toggle="tooltip" title="" data-original-title="Wishlist"> <i class="icon icon-heart"></i><span>Wishlist</span> </a>
+									<?php endif; ?>
+								 </div>
+								 <?php if($_compareUrl= Mage::helper('catalog/product_compare')->getAddUrl($_cproduct)): ?>
+								 <div class="compare">
+									<a class="btn-tooltip btn btn-highlighted add_to_compare" href="<?php echo $_compareUrl ?>" data-id-product="8" data-toggle="tooltip" title="" data-original-title="Compare"> <i class="icon icon-retweet"></i><span>Compare</span></a>
+								 </div>
+								<?php endif; 
+							}?>
+						  
+						  
+						  
                               <div class="addtocart cart">
-                                
+                               <?php if($_cproduct->isSaleable()): ?>
+									<button data-toggle="tooltip" ata-original-title="Add to Cart" type="button" title="<?php echo $this->__('Add to Cart') ?>" class="btn btn-shopping-cart btn-tooltip btn-highlighted ajax_add_to_cart_button" onclick="setLocation(this,'<?php echo Mage::helper('checkout/cart')->getAddToCartUrl($_cproduct);?>?options=cart')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
 								
-								<?php if($_cproduct->isSaleable() && !$_cproduct->canConfigure()): ?>
-									<button data-toggle="tooltip" ata-original-title="Add to Cart" type="button" title="<?php echo $this->__('Add to Cart') ?>" class="btn btn-shopping-cart btn-tooltip btn-highlighted ajax_add_to_cart_button" onclick="productAddToAjaxCartForm(this,'<?php echo Mage::helper('checkout/cart')->getAddUrl($_cproduct) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
-								<?php elseif($_cproduct->isSaleable()): ?>
-									<a title="<?php echo $this->__('View Details') ?>" class="btn btn-shopping-cart btn-tooltip btn-highlighted ajax_add_to_cart_button" href="<?php echo $_cproduct->getProductUrl() ?>" data-toggle="tooltip" data-original-title="View Details" ><?php echo $this->__('View Details') ?></a>
 								<?php else: ?>								
 									<p data-toggle="tooltip" class="btn btn-shopping-cart btn-tooltip btn-highlighted ajax_add_to_cart_button" data-original-title="Out of stock"><span><?php echo $this->__('Out of stock') ?></span></p>
 								<?php endif; ?>

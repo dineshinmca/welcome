@@ -22,10 +22,35 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 */
+
+
+/* jQuery("#header .shopping_cart").on({
+    mouseenter: function () {
+       jQuery("#header .cart_block").stop(true, true).slideDown(450);
+    },
+    mouseleave: function () {
+        setTimeout(function(){
+				if (!shopping_cart.isHoveringOver() && !cart_block.isHoveringOver())
+					jQuery("#header .cart_block").stop(true, true).slideUp(450);				
+			}, 200);
+    }
+}); */
+
+jQuery("#cart").on('mouseenter', '.mini-cart', function() { 
+		alert('dsd');
+     jQuery("#header .cart_block").stop(true, true).slideDown(450);
+}).on('mouseleave', '.skip-link', function() {
+    setTimeout(function(){
+				if (!shopping_cart.isHoveringOver() && !cart_block.isHoveringOver())
+					jQuery("#header .cart_block").stop(true, true).slideUp(450);				
+			}, 200);
+    }
+);
+
 jQuery(document).ready(function(){
 	
 
-	jQuery(document).on('click', '.block_cart_collapse', function(e){
+/* 	jQuery(document).on('click', '.block_cart_collapse', function(e){
 		e.preventDefault();
 		ajaxCart.collapse();
 	});
@@ -33,14 +58,14 @@ jQuery(document).ready(function(){
 		e.preventDefault();
 		ajaxCart.expand();
 	});
-
+ 
 	var cart_qty = 0;
-	var current_timestamp = parseInt(new Date().getTime() / 1000);
+	var current_timestamp = parseInt(new Date().getTime() / 1000);*/
 
-	if (typeof jQuery('.ajax_cart_quantity').html() == 'undefined' || (typeof generated_date != 'undefined' && generated_date != null && (parseInt(generated_date) + 30) < current_timestamp))
+	/* if (typeof jQuery('.ajax_cart_quantity').html() == 'undefined' || (typeof generated_date != 'undefined' && generated_date != null && (parseInt(generated_date) + 30) < current_timestamp))
 		ajaxCart.refresh();
 	else
-		cart_qty = parseInt(jQuery('.ajax_cart_quantity').html());
+		cart_qty = parseInt(jQuery('.ajax_cart_quantity').html()); */
 
 	/* roll over cart */
 	var cart_block = new HoverWatcher('#header .cart_block');
@@ -85,7 +110,12 @@ jQuery(document).ready(function(){
 		}
 	);
 
-	jQuery(document).on('click', '.delete_voucher', function(e){
+/* 	jQuery( "#header .shopping_cart .mini-cart" ).on( "click", function() {
+	alert('asas');
+	jQuery("#header .cart_block").stop(true, true).slideDown(450);
+}); */
+	
+/* 	jQuery(document).on('click', '.delete_voucher', function(e){
 		e.preventDefault();
 		$.ajax({
 			type: 'POST',
@@ -102,9 +132,9 @@ jQuery(document).ready(function(){
 			else
 				location.reload();
 		}
-	});
+	}); */
 
-	jQuery(document).on('click', '#cart_navigation input', function(e){
+/* 	jQuery(document).on('click', '#cart_navigation input', function(e){
 		jQuery(this).prop('disabled', 'disabled').addClass('disabled');
 		jQuery(this).closest("form").get(0).submit();
 	});
@@ -113,9 +143,9 @@ jQuery(document).ready(function(){
 		e.preventDefault();
 		jQuery('.layer_cart_overlay').hide();
 		jQuery('#layer_cart').fadeOut('fast');
-	});
+	}); */
 	
-	jQuery('#columns #layer_cart, #columns .layer_cart_overlay').detach().prependTo('#columns');
+	//jQuery('#columns #layer_cart, #columns .layer_cart_overlay').detach().prependTo('#columns');
 });
 
 //JS Object : update the cart by ajax actions

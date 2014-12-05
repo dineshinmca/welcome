@@ -1,40 +1,18 @@
 <?xml version="1.0"?>
 <package>
-    <name>Strategery_InfiniteScroll2</name>
-    <version>3.1.0</version>
+    <name>HardikAjaxCart</name>
+    <version>2.1.0</version>
     <stability>stable</stability>
-    <license uri="http://opensource.org/licenses/afl-3.0.php">Academic Free License (AFL 3.0)</license>
+    <license uri="http://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</license>
     <channel>community</channel>
     <extends/>
-    <summary>Automatically load the next page of products by AJAX after the end of the list.</summary>
-    <description>&lt;h2&gt;Description:&lt;/h2&gt;&#xD;
-&lt;p&gt;This extension is for when the user reaches the end of the current product list, the next page is loaded automatically by AJAX after the end of the list.&#xD;
-Easy to install and configure, this module works 100% out of the box with Magento's default theme, and also gives to you the posibility to configurate the custom selectors of your custom theme.&#xD;
-Now you can get a more friendly UI by helping the user to save clicks and time.&lt;/p&gt;&#xD;
-&lt;h2&gt;Installation:&lt;/h2&gt;&#xD;
-&lt;ul&gt;&#xD;
-&lt;li&gt;Download from Magento Connect.&lt;/li&gt;&#xD;
-&lt;li&gt;Configure the selectos for your theme on System / Configuration seccion.&lt;/li&gt;&#xD;
-&lt;li&gt;Refresh your Magento cache.&lt;/li&gt;&#xD;
-&lt;li&gt;Scroll to infinity and beyond!&lt;/li&gt;&#xD;
-&lt;/ul&gt;&#xD;
-&lt;h2&gt;Configuration:&lt;/h2&gt;&#xD;
-&lt;p&gt;If you have a different theme other than the default, you will need to copy the default theme files to your custom theme folder and configure the plugin by going to&#xD;
-System / Configuration / Catalog / Infinite Scroll.&lt;br /&gt;&#xD;
-NOTE: If you have another JS module that adds some custom behavior to the product list, remember to use our callback function to add that behavior to the products loaded by InfiniteScroll.&lt;/p&gt;&#xD;
-&lt;h2&gt;Demo:&lt;/h2&gt;&#xD;
-&lt;p&gt;&lt;a href="http://demo.usestrategery.com/infinite-scroll"&gt;http://demo.usestrategery.com/infinite-scroll&lt;/a&gt;&lt;/p&gt;&#xD;
-&lt;p&gt;Admin:&lt;br /&gt;&#xD;
-&lt;a href="http://demo.usestrategery.com/infinite-scroll/admin"&gt;http://demo.usestrategery.com/infinite-scroll/admin&lt;/a&gt;&lt;br /&gt;&#xD;
-User: demo&lt;br /&gt;&#xD;
-Password: demo1234&lt;/p&gt;&#xD;
-&lt;h2&gt;Reporting Issues / Support&lt;/h2&gt;&#xD;
-&lt;p&gt;To report issues or request support please visit our &lt;a href="https://github.com/Strategery-Inc/Magento-InfiniteScroll/issues"&gt;Github repository.&lt;/a&gt;&lt;/p&gt;</description>
-    <notes>Upgraded to IAS 2.1.3</notes>
-    <authors><author><name>Gabriel Somoza</name><user>gabrielsomoza</user><email>work@gabrielsomoza.com</email></author></authors>
-    <date>2014-10-24</date>
-    <time>16:20:40</time>
-    <contents><target name="magecommunity"><dir name="Strategery"><dir name="Infinitescroll"><dir name="Block"><file name="Init.php" hash="eb94f2ad9c569666aef2395f4b3cda13"/></dir><dir name="Helper"><file name="Data.php" hash="dd52515b5b7951023f1f9a20c9bd0a2d"/></dir><dir name="Model"><dir name="Admin"><file name="Feed.php" hash="c7773b4784bc141fde397932ddefdc4e"/></dir><file name="Observer.php" hash="2ade581b07f47ee8e6c5c3f96f3b7f10"/></dir><dir name="etc"><file name="adminhtml.xml" hash="c7729a65c53f84047a9df2adfe445649"/><file name="config.xml" hash="1d7438b49ef3d458d24986f3e866e69a"/><file name="system.xml" hash="257db53805abd0ac5f5e61e17b2f1de1"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Strategery_Infinitescroll.xml" hash="c8b3828ac543c7006ac9402f7663cb16"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="strategery-infinitescroll.xml" hash="c311f573ed80d079b18c15478f138af2"/></dir><dir name="template"><dir name="strategery"><dir name="infinitescroll"><file name="init.phtml" hash="335850391c4a7c94c3d920cae50ef16d"/></dir></dir></dir></dir></dir></dir></target><target name="mage"><dir name="js"><dir name="jquery"><file name="jquery.1.10.2.min.js" hash=""/><dir name="infinitescroll"><file name="jquery-ias.js" hash="72522152b90a9502da008600b068a31a"/><file name="jquery-ias.min.js" hash="ea1087ec549df2d923db487b696a5f43"/><file name="jquery.easing-1.3.pack.js" hash="83e56485c52e15ff74e1c02615af14af"/><file name="jquery.ui.totop.min.js" hash="c0c43bf13983cd65ab4584b479d2a2d9"/></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="js"><dir name="infinitescroll"><file name="ias_config.js" hash="50a5cda2f0214c13f1423640c521335a"/></dir></dir></dir></dir></dir></target></contents>
+    <summary>provides ajax cart functionality. It is highly customizable.</summary>
+    <description>Now, it provides ajax add to cart functionality for configurable and group products too.</description>
+    <notes>Support for Magento 1.9</notes>
+    <authors><author><name>Hardik Gajjar</name><user>hardik_krishinc</user><email>hardik.gajjar@krishinc.com</email></author></authors>
+    <date>2014-07-31</date>
+    <time>06:48:23</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Hardik_Ajaxcart.xml" hash="81451d4f81af3650b8151344bbc1e865"/></dir></target><target name="magelocal"><dir name="Hardik"><dir name="Ajaxcart"><dir name="Block"><dir name="Adminhtml"><file name="Info.php" hash="8fab3b7d0b1390dcc80a037c66b1ba7f"/><file name="Url.php" hash="ed7b1ff4b0f4ad33d45cfd301dba4227"/></dir></dir><dir name="Helper"><file name="Data.php" hash="773174c4f49cccc57be68acb1e0027e5"/></dir><dir name="Model"><file name="Observer.php" hash="13e2cb8fea9e79dc84593b1174d7ec5a"/><file name="Response.php" hash="b4508819058f7fd656a4e65fab9fe4c9"/></dir><dir name="controllers"><dir name="Checkout"><file name="CartController.php" hash="8e0e56d6627539bb6a342df80a80af9f"/></dir></dir><dir name="etc"><file name="config.xml" hash="8722eb8a94bb093e231fb253633171ca"/><file name="system.xml" hash="70e92e5d3c03d7b462e72ba3a8eaca1f"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="ajaxcart.xml" hash="14885283aa1764dc7aba659ac16d73a3"/></dir><dir name="template"><dir name="ajaxcart"><file name="configurable_options.phtml" hash="c1d55b5cea9ba6fc2568251d99c3b789"/><file name="grouped_options.phtml" hash="7409b93efccff6dbabd5c4c8a19b0cda"/></dir></dir></dir></dir><dir name="rwd"><dir name="default"><dir name="layout"><file name="ajaxcart.xml" hash="655561905b6d02a15c5dca6cba15992e"/></dir><dir name="template"><dir name="ajaxcart"><dir name="catalog"><dir name="product"><file name="list.phtml" hash="b5673ebd5800779150b29517821e0b18"/></dir></dir></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="ajaxcart"><file name="ajaxcart.js" hash="781d0b4f81243ecf541840cb7329570c"/><file name="growler.css" hash="c13a01e28cb4eb98b1fbc4a419d906cf"/><file name="growler.js" hash="816d275972bbe9c048033643755fb194"/><file name="modalbox.css" hash="9dfad4d258cbfe5af951f1bc7f7f82c7"/><file name="modalbox.js" hash="7aa6bdceed4379c80f47788ae21f1464"/><file name="spinner.gif" hash="58625c045f515052999e13aed5059b07"/></dir></dir></dir></dir></target></contents>
     <compatible/>
-    <dependencies><required><php><min>5.3.0</min><max>5.6.1</max></php></required></dependencies>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
 </package>

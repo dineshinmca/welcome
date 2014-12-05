@@ -104,12 +104,12 @@ var responsiveflag = false;
 			}
 		}).css('opacity', 0.8);
 
-	if (!!$.prototype.fancybox)
+	/* if (!!$.prototype.fancybox)
 		$.extend($.fancybox.defaults.tpl, {
 			closeBtn : '<a title="' + FancyboxI18nClose + '" class="fancybox-item fancybox-close" href="javascript:;"></a>',
 			next     : '<a title="' + FancyboxI18nNext + '" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
 			prev     : '<a title="' + FancyboxI18nPrev + '" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
-		});
+		}); */
 		jQuery('.btn-tooltip').tooltip('show');
 		jQuery('.btn-tooltip').tooltip('hide');
 

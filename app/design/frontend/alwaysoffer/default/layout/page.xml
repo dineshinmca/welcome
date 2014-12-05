@@ -54,25 +54,26 @@
              
                 <!-- Add vendor dependencies -->
                 <action method="addItem"><type>skin_js</type><name>js/jquery-1.11.0.min.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/jquery-migrate-1.2.1.min.js</name></action> 
+               <!--    <action method="addItem"><type>skin_js</type><name>js/jquery-migrate-1.2.1.min.js</name></action> 
                 <action method="addItem"><type>skin_js</type><name>js/jquery.easing.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/tools.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/global.js</name></action>
+              <action method="addItem"><type>skin_js</type><name>js/tools.js</name></action>
+                <action method="addItem"><type>skin_js</type><name>js/global.js</name></action> -->
                 <action method="addItem"><type>skin_js</type><name>js/10-bootstrap.min.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/15-jquery.total-storage.min.js</name></action>
+				<action method="addItem"><type>skin_js</type><name>js/ajax-cart.js</name></action> 
+              <!--  <action method="addItem"><type>skin_js</type><name>js/15-jquery.total-storage.min.js</name></action>
                 <action method="addItem"><type>skin_js</type><name>js/15-jquery.uniform-modified.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/jquery.fancybox.js</name></action>
-               <!--  <action method="addItem"><type>skin_js</type><name>js/products-comparison.js</name></action> -->
-				<action method="addItem"><type>skin_js</type><name>js/ajax-cart.js</name></action>
+                 <action method="addItem"><type>skin_js</type><name>js/jquery.fancybox.js</name></action>
+                <action method="addItem"><type>skin_js</type><name>js/products-comparison.js</name></action>
+				
 				<action method="addItem"><type>skin_js</type><name>js/jquery.scrollTo.js</name></action>
 				<action method="addItem"><type>skin_js</type><name>js/jquery.serialScroll.js</name></action>
-				<action method="addItem"><type>skin_js</type><name>js/jquery.bxslider.js</name></action>
+				<action method="addItem"><type>skin_js</type><name>js/jquery.bxslider.js</name></action>-->
 				<action method="addItem"><type>skin_js</type><name>js/homeslider.js</name></action>
 				<action method="addItem"><type>skin_js</type><name>js/jquery.themepunch.revolution.min.js</name></action>
-				<action method="addItem"><type>skin_js</type><name>js/jquery.themepunch.plugins.min.js</name></action>
+				<!--<action method="addItem"><type>skin_js</type><name>js/jquery.themepunch.plugins.min.js</name></action>
 				<action method="addItem"><type>skin_js</type><name>js/live_configurator.js</name></action>
 				<action method="addItem"><type>skin_js</type><name>js/index.js</name></action>
-				<action method="addItem"><type>skin_js</type><name>js/minicart.js</name></action>
+				<action method="addItem"><type>skin_js</type><name>js/minicart.js</name></action> -->
 				
               
 				<action method="addItem"><type>skin_css</type><name>css/global-food.css</name><params/><if></if></action>
